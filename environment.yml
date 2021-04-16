@@ -1,4 +1,4 @@
-name: scripts-sync-pd-centreon-env
+name: zabbit-rt-export-tailer-env
 dependencies:
 - python=2
 - pip
