@@ -1,0 +1,8 @@
+name: scripts-sync-pd-centreon-env
+dependencies:
+- python=2
+- pip
+- git
+- requests=2.14.2
+- pip:
+    - tailhead==1.0.2
