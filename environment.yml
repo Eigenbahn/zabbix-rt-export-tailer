@@ -1,7 +1,6 @@
 name: zabbit-rt-export-tailer-env
 dependencies:
 - pip
-- git
 - requests=2.14.2
 - pip:
     - tailhead==1.0.2
