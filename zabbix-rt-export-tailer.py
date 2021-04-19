@@ -40,7 +40,8 @@ proxies = parsed.proxies
 
 for line in tailhead.follow_path(file_path):
     try:
-        resp = requests.post(api_url, data=line
+        resp = requests.post(api_url,
+                             data=line,
                              headers={'Content-Type': 'application/json'})
 
         # try:
