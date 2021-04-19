@@ -1,4 +1,4 @@
-name: zabbit-rt-export-tailer-env
+name: zabbix-rt-export-tailer-env
 dependencies:
 - pip
 - requests=2.23.0
