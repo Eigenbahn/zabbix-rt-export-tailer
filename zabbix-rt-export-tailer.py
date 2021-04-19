@@ -1,6 +1,7 @@
 #!/usr/bin/python
 import os
 import sys
+import time
 import logging
 import tailhead
 import requests
@@ -12,7 +13,7 @@ from pprint import pprint
 #     sys.path.append(module_path)
 
 
-logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
+logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 
 
 # -------------------------------------------------------------------------
@@ -39,6 +40,10 @@ proxy = parsed.proxy
 # MAIN
 
 for line in tailhead.follow_path(file_path):
+    if line is None:
+        time.sleep(0.1)
+        continue
+
     try:
         proxies_dict = {}
         if proxy:
