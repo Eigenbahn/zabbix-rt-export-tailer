@@ -46,9 +46,9 @@ for line in tailhead.follow_path(file_path):
 
         # try:
         #     r.raise_for_status()
-        # except requests.exceptions.HTTPError, e:
+        # except requests.exceptions.HTTPError as e:
         #     return False
 
         resp.close()
-    except requests.RequestException, e:
+    except requests.RequestException as e:
         pass
