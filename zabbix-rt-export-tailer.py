@@ -24,14 +24,14 @@ parser.add_argument("--export-file", type=str, required=True,
                     help="Full path of input RT export file")
 parser.add_argument("--api-url", type=str, required=True,
                     help="URL of API to forward logs to")
-parser.add_argument("--proxies", type=str, required=True,
+parser.add_argument("--proxy", type=str, required=False,
                     help="HTTP proxies")
 
 parsed = parser.parse_args()
 
 file_path = parsed.export_file
 api_url = parsed.api_url
-proxies = parsed.proxies
+proxy = parsed.proxy
 
 
 
@@ -40,9 +40,17 @@ proxies = parsed.proxies
 
 for line in tailhead.follow_path(file_path):
     try:
+        proxies_dict = {}
+        if proxy:
+            proxies_dict = {
+                "http"  : proxy,
+                "https" : proxy,
+            }
+
         resp = requests.post(api_url,
                              data=line,
-                             headers={'Content-Type': 'application/json'})
+                             headers={'Content-Type': 'application/json'},
+                             proxies=proxies_dict)
 
         # try:
         #     r.raise_for_status()
